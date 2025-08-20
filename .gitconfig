@@ -1,0 +1,12 @@
+[credential "https://stash.elecnor-deimos.com"]
+	provider = bitbucket
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	name = Matteo Lusvarghi
+	email = matteo.lusvarghi@elecnor.es
+[credential "https://stash.deimos-space.com"]
+	provider = bitbucket
