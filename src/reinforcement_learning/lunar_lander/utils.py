@@ -1,4 +1,5 @@
 import os, random, numpy as np, torch, matplotlib.pyplot as plt
+import imageio.v2 as imageio
 
 def seed_all(seed=42):
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
@@ -13,3 +14,7 @@ def plot_rewards(rewards, outpath):
     plt.xlabel("Episode"); plt.ylabel("Return")
     plt.title("LunarLander – REINFORCE")
     fig.tight_layout(); fig.savefig(outpath, dpi=160); plt.close(fig)
+
+def save_gif(frames, outpath, fps=30):
+    outpath.parent.mkdir(parents=True, exist_ok=True)
+    imageio.mimsave(outpath, frames, fps=fps)
